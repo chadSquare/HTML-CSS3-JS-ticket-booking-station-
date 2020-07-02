@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- css stylesheet below -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>Joe's Coaches</title>
+  </head>
+  <body>
+    <header>
+      <img src="images/open-menu.svg" class="burger" id="burger" />
+      <a href="#">
+        <img src="images/icon2.png" />
+      </a>
+
+      <!-- start of main (large screen) navigation -->
+      <nav class="main-nav">
+        <ul>
+          <li><a class="links" href="#">Home</a></li>
+          <li><a class="links" href="#">Book Now</a></li>
+          <li><a class="links" href="#">About Us</a></li>
+          <li><a class="links" href="#">View Coaches</a></li>
+        </ul>
+      </nav>
+      <!-- end of main (large screen) navigation -->
+    </header>
+
+    <!-- start mobile navigation markup below -->
+    <nav class="mobile-nav">
+      <ul>
+        <li><a class="links" href="#">Home</a></li>
+        <li><a class="links" href="#">Book Now</a></li>
+        <li><a class="links" href="#">About Us</a></li>
+        <li><a class="links" href="#">View Coaches</a></li>
+      </ul>
+    </nav>
+    <!-- end of mobile navigation markup  -->
+
+    <!-- start of main content markup below -->
+    <section class="main-container">
+      <h1>Search and Book Your Bus Ticket</h1>
+      <div class="trip-type-area">
+        <p>Select the Type of Trip</p>
+        <button id="return-trip-btn" class="btn">RETURN</button>
+        <button id="oneway-trip-btn" class="btn">ONE-WAY</button>
+      </div>
+      <form class="options-area">
+        <select id="departure-city" class="inputs dropdowns">
+          <!-- show the first option as a placeholder -->
+          <option id="opt1" disabled selected hidden
+            >Select a Departure City</option
+          >
+          <option>Cape Town</option>
+          <option>Johannesburg</option>
+          <option>Durban</option>
+        </select>
+        <select id="destination-city" class="inputs dropdowns">
+          <option disabled selected hidden>Select a Destination City</option>
+          <option>Cape Town</option>
+          <option>Johannesburg</option>
+          <option>Durban</option>
+        </select>
+        <!-- change the type from text to date then back to text, simulate the placeholder for the 
+          date input. Requires user to click on input twice. BAD UX? -->
+        <input
+          type="text"
+          class="inputs dates"
+          id="departure-date"
+          placeholder="Select a Departure Date"
+          onfocus="(this.type='date')"
+          onblur="(this.type='text')"
+        />
+        <input
+          type="text"
+          class="inputs dates"
+          id="return-date"
+          placeholder="Select a Return Date"
+          onfocus="(this.type='date')"
+          onblur="(this.type='text')"
+        />
+        <!-- no less than 1 ticket and max 10 -->
+        <input
+          type="number"
+          id="passenger-count"
+          class="inputs passenger-count"
+          min="1"
+          max="10"
+          placeholder="Select the number of passengers"
+        />
+        <button class="book-now btn">Book Now</button>
+      </form>
+    </section>
+    <!-- end of main content markup  -->
+
+    <!--start of confirmation/quotation modal markup below -->
+    <aside id="quotation" class="modal">
+      <div class="heading">
+        <h3>Your Booking Details</h3>
+      </div>
+      <table>
+        <tr>
+          <td>Trip Type</td>
+          <td id="quoted-trip-type">Return</td>
+        </tr>
+        <tr>
+          <td>Departure From</td>
+          <td id="quoted-depart-city">cape town</td>
+        </tr>
+        <tr>
+          <td>Return From</td>
+          <td id="quoted-destination-city"></td>
+        </tr>
+        <tr>
+          <td>Passengers</td>
+          <td id="quoted-passenger-count">2</td>
+        </tr>
+        <tr>
+          <td>Total Price</td>
+          <td id="quoted-price">R1300</td>
+        </tr>
+      </table>
+      <button id="confirm" class="btn confirm">Confirm</button>
+    </aside>
+    <!-- end of confirmation/quotation modal markup  -->
+
+    <!-- start of dynamic alert modal -->
+
+    <aside id="alerts" class="modal alerts">
+      <h1 id="alert-close-btn">&times;</h1>
+      <!-- alert-text is updated dynamically in JS -->
+      <h2 id="alert-text"></h2>
+      <img src="images/alert.png" alt="alert.png" />
+    </aside>
+
+    <div id="blackout" class="blackout"></div>
+    <!-- end of dynamic alert modal -->
+
+    <!-- main footer below -->
+    <footer>
+      <section id="copyright">
+        <p>&copy; 2020 Joe's Coaches</p>
+        <a href="#" class="links">Terms & Conditions Apply</a>
+      </section>
+      <section id="social">
+        <img src="images/facebook-icon.png" />
+        <img src="images/insta-icon.png" />
+        <img src="images/linked-in-icon.png" />
+      </section>
+    </footer>
+    <!-- end of footer markup  -->
+
+    <!-- js script below -->
+    <script src="js/script.js"></script>
+  </body>
+</html>

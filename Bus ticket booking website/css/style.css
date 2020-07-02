@@ -1,0 +1,412 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #333;
+}
+
+body {
+  background-color: #f4f6ff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  height: 15vh;
+  width: 100%;
+  display: flex;
+  padding: 5px;
+  background-color: white;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
+}
+
+.burger {
+  margin: auto;
+  padding-left: 5px;
+  height: 2em;
+  width: 1.5em;
+  cursor: pointer;
+  display: none;
+}
+
+header a img {
+  width: 100%;
+  height: 100%;
+}
+
+/* start of main nav styles */
+.main-nav {
+  width: 100%;
+  height: 100%;
+}
+
+.main-nav ul {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+nav li {
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+.main-nav ul a {
+  padding: 3em;
+}
+.links {
+  text-decoration: none;
+  color: #2daece;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    display: none;
+  }
+  .burger {
+    display: block;
+  }
+  header a {
+    width: 100%;
+    margin-left: 0.5em;
+  }
+}
+
+/* end of main nav styles */
+
+/* start of mobile nav styles */
+.mobile-nav {
+  height: calc(100vh - 15vh - 5.3em);
+  width: 45%;
+  background-color: white;
+  box-shadow: 5px 1px 5px 0px rgba(0, 0, 0, 0.35);
+  position: absolute;
+  top: 15vh;
+  left: -50%;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .mobile-nav {
+    height: 110vh;
+  }
+}
+
+@media (max-width: 400px) {
+  .mobile-nav {
+    height: 130vh;
+  }
+}
+
+ul {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* class that gets added to show the mobile nav */
+.openClass {
+  animation-name: openNav;
+  animation-timing-function: ease;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes openNav {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+/* end of mobile nav styles */
+
+/* start of footer */
+footer {
+  height: 5em;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+}
+
+section {
+  height: 100%;
+  width: 100%;
+}
+
+#copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#copyright p {
+  margin-right: 2em;
+}
+
+#social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#social img {
+  height: 2.5em;
+  width: 2.5em;
+  float: right;
+  padding: 5px;
+  cursor: pointer;
+  transition-duration: 1s;
+}
+
+@media (min-width: 1000px) {
+  #social img:hover {
+    transform: translateY(8px);
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+  }
+
+  #copyright {
+    justify-content: space-around;
+  }
+
+  #social img {
+    height: 2em;
+    width: 2em;
+  }
+}
+
+/* end of footer */
+
+/* start of main content booking area */
+.main-container {
+  /* container height = the height of the window - the header height - the nav height */
+  height: calc(100vh - 15vh - 5em);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* increase the height while the screen is smaller than 400px */
+@media (max-width: 760px) {
+  .main-container {
+    height: 110vh;
+  }
+}
+
+@media (max-width: 400px) {
+  .main-container {
+    height: 130vh;
+  }
+}
+
+.main-container h1 {
+  margin: 0.5em;
+  text-align: center;
+  font-size: 40px;
+}
+
+.trip-type-area {
+  margin: 0.5em;
+  text-align: center;
+}
+
+.trip-type-area p {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.btn {
+  background-color: #2daece;
+  color: white;
+  padding: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.options-area {
+  height: 100%;
+  width: 70%;
+  gap: 0;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  opacity: 0;
+  display: none;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+/* aniamtion for all the input and select elements to show*/
+@keyframes showOptions {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+.inputs {
+  height: 4em;
+  padding-left: 50px;
+  width: 20em;
+  outline: none;
+  border: 1px solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.book-now {
+  height: 4em;
+  width: 20em;
+  outline: none;
+  border: 1px solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropdowns {
+  background: url(../images/location_icon_select.png) no-repeat 5px 5px;
+}
+
+.dates {
+  background: url(../images/depart_return.png) no-repeat 5px 5px;
+}
+
+.passenger-count {
+  background: url(../images/passenger_icon.png) no-repeat 5px 5px;
+}
+
+/* hover effects for large/pc screens only */
+/* on andriod, styles added with hover are not removed if the element was clicked on */
+@media (min-width: 1000px) {
+  .main-nav a:hover {
+    background-color: rgb(51, 51, 51, 0.1);
+  }
+  .links:hover {
+    color: #ce4d2d;
+  }
+
+  .btn:hover {
+    background-color: #ce4d2d;
+  }
+
+  .inputs:hover {
+    color: #2daece;
+  }
+}
+
+@media (max-width: 768px) {
+  .options-area {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 5px;
+    width: 80%;
+  }
+}
+/* end of main content booking area */
+
+/* start of quotation modal styling */
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 28%;
+  transform: translateX(-50%);
+  height: 21em;
+  width: 21em;
+  border: 1px solid;
+  background-color: white;
+  text-align: center;
+  display: none;
+  z-index: 3;
+}
+
+.heading {
+  height: 15%;
+  background-color: #2daece;
+  margin-bottom: 1em;
+  padding: 10px;
+}
+
+.modal table {
+  margin: auto;
+}
+
+table,
+td {
+  border: 1px solid;
+  border-collapse: collapse;
+  padding: 10px;
+}
+
+.confirm {
+  background-color: #6cc408;
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    height: 23em;
+  }
+}
+/* end of quotation modal styling */
+
+/* start of alert modal styling */
+.alerts {
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 3px solid red;
+  z-index: 3;
+}
+
+.alerts h1 {
+  cursor: pointer;
+}
+
+.alerts img {
+  height: 40%;
+  width: 50%;
+}
+/* end of alert modal styling */
+
+.blackout {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  z-index: 2;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .blackout {
+    height: 140vh;
+  }
+}
+
+@media (max-width: 400px) {
+  .blackout {
+    height: 159vh;
+  }
+}
