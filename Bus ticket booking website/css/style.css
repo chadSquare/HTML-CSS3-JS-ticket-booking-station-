@@ -106,13 +106,16 @@ nav a {
   }
 }
 
-ul {
+.mobile-nav ul {
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+}
+
+.mobile-nav ul li {
+  padding: 2em;
 }
 
 /* class that gets added to show the mobile nav */
